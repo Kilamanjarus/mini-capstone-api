@@ -1,0 +1,26 @@
+Mini-Capstone
+what is needed:
+
+  Creation of a product
+  controller
+    Title:string
+    Description:string
+    Price:int 
+    Picture:
+    
+    Tax:int
+    Total:int
+
+    ### Future Ideas not necessary now ###
+    add to cart   
+   
+    Quanity Left?
+
+  Add product creation to seed:Db and create a database of products
+
+  one route shows one product
+    need a product class w/ methods
+    methods should access DB and show various information
+
+  one route shows all products
+    product class w/ method to show all hashes contained in database
