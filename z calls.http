@@ -1,4 +1,4 @@
-get http://localhost:3000/banana
+get http://localhost:3000//all_products/1
 
 ###
 get http://localhost:3000/all_products
