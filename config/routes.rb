@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/all_products", controller: "products", action: "show_all_products"
 
-  get "/all_products/:id", controller: "products", action: "get_info_banana"
+  get "/all_products/:id", controller: "products", action: "get_info_id"
 
   # Defines the root path route ("/")
   # root "articles#index"
