@@ -23,11 +23,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find_by(id: 7)
-    # product = Product.find_by(id: params[:id])
-    product.title = "Orange"
-    product.description = "An orange fruit"
-    product.price = 3
+    # product = Product.find_by(id: 7)
+    product = Product.find_by(id: params[:id])
+    product.title = params[:title]
+    product.description = params[:description]
+    product.price = params[:price]
+    product.image_url = params[:image_url]
     product.save
     render json: product.as_json
     # render json: { message: "Nice!" }
