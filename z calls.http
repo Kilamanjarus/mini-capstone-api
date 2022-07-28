@@ -4,3 +4,6 @@ get http://localhost:3000/products
 
 ### 
 get http://localhost:3000/products/1
+
+###
+post http://localhost:3000/products
