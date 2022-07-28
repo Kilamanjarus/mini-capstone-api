@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  #2 routes, shows 1 product, shows all products
-
-  get "/all_products", controller: "products", action: "show_all_products"
-
-  get "/all_products/:id", controller: "products", action: "get_info_id"
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "/products" => "products#index"
+  get "/products/:id" => "products#show"
 end

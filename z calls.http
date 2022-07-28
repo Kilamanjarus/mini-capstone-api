@@ -1,4 +1,6 @@
-get http://localhost:3000//all_products/1
 
-###
-get http://localhost:3000/all_products
+get http://localhost:3000/products
+
+
+### 
+get http://localhost:3000/products/2
