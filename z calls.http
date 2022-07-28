@@ -15,3 +15,6 @@ Content-Type: application/json
   "price": 4,
   "image_url": "google.com"
 }
+
+###
+patch http://localhost:3000/products/6

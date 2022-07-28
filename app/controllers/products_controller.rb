@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    p params[:title]
+    # p params[:title]
     product = Product.new(
       title: params[:title],
       description: params[:description],
@@ -19,6 +19,17 @@ class ProductsController < ApplicationController
       image_url: params[:image_url],
     )
     product.save
-    render json: { message: "Good job, saved!" }
+    # render json: { message: "Good job, saved!" }
+  end
+
+  def update
+    product = Product.find_by(id: 7)
+    # product = Product.find_by(id: params[:id])
+    product.title = "Orange"
+    product.description = "An orange fruit"
+    product.price = 3
+    product.save
+    render json: product.as_json
+    # render json: { message: "Nice!" }
   end
 end
