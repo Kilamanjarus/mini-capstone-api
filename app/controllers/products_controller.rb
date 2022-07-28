@@ -11,11 +11,12 @@ class ProductsController < ApplicationController
   end
 
   def create
+    p params[:title]
     product = Product.new(
-      title: "Carrot",
-      description: "A orange vegetable",
-      price: 1,
-      image_url: "google.com",
+      title: params[:title],
+      description: params[:description],
+      price: params[:price],
+      image_url: params[:image_url],
     )
     product.save
     render json: { message: "Good job, saved!" }
