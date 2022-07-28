@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    render json: { message: "Hi" }
+    product = Product.find_by(id: params[:id])
+    render json: product.as_json
   end
 end
