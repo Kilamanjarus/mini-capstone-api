@@ -25,12 +25,18 @@ class ProductsController < ApplicationController
   def update
     # product = Product.find_by(id: 7)
     product = Product.find_by(id: params[:id])
-    product.title = params[:title]
-    product.description = params[:description]
-    product.price = params[:price]
-    product.image_url = params[:image_url]
+    product.title = params[:title] || product.title
+    product.description = params[:description] || product.description
+    product.price = params[:price] || product.price
+    product.image_url = params[:image_url] || product.image_url
     product.save
     render json: product.as_json
     # render json: { message: "Nice!" }
+  end
+
+  def destroy
+    product = Product.find_by(id: params[:id])
+    product.delete
+    render json: { message: "Goodbye data!" }
   end
 end

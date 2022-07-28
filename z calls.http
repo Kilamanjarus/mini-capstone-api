@@ -17,12 +17,12 @@ Content-Type: application/json
 }
 
 ###
-patch http://localhost:3000/products/5
+patch http://localhost:3000/products/6
 Content-Type: application/json
 
 {
-  "title": "Lettuce",
-  "description": "A green leafy vegetable",
-  "price": 2,
-  "image_url": "google.com"
+  "title": "Yellow Pepper"
 }
+
+###
+DELETE http://localhost:3000/products/11
