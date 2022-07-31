@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   def create
     # p params[:title]
     product = Product.new(
-      title: params[:title],
+      title: params[:name],
       description: params[:description],
       price: params[:price],
       image_url: params[:image_url],
@@ -37,6 +37,6 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find_by(id: params[:id])
     product.delete
-    render json: { message: "Goodbye data!" }
+    # render json: { message: "Goodbye data!" }
   end
 end

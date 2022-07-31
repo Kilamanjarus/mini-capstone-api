@@ -1,7 +1,6 @@
 
 get http://localhost:3000/products
 
-
 ### 
 get http://localhost:3000/products/1
 
@@ -25,4 +24,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/products/11
+DELETE http://localhost:3000/products/13
