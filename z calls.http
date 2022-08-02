@@ -1,8 +1,8 @@
 
-get http://localhost:3000/products
+get http://localhost:3000/products.json
 
 ### 
-get http://localhost:3000/products/1
+get http://localhost:3000/products/1.json
 
 ###
 post http://localhost:3000/products
