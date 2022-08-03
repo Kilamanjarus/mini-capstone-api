@@ -16,12 +16,15 @@ class ProductsController < ApplicationController
       price: params[:price],
       image_url: params[:image_url],
     )
-    product.save
+    if product.save
+      render json: product.as_json
+    else
+      render json: product.errors.full_messages, status: :unprocessable_entity
+    end
     # render json: { message: "Good job, saved!" }
   end
 
   def update
-    # product = Product.find_by(id: 7)
     product = Product.find_by(id: params[:id])
     product.title = params[:title] || product.title
     product.description = params[:description] || product.description

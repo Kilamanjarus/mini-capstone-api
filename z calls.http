@@ -9,7 +9,7 @@ post http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "title": "Strawberry",
+  "title": "Egg",
   "description": "A red fruit",
   "price": 4,
   "image_url": "google.com"
