@@ -3,7 +3,6 @@
   price: @product.price,
   name: @product.name,
   description: @product.description,
-  image_url: @product.image_url,
   friendly_created_at: @product.friendly_created_at,
   is_discounted: @product.is_discounted?,
   tax: @product.tax,
@@ -11,5 +10,5 @@
   supplier: @product.supplier,
   created_at: @product.created_at,
   updated_at: @product.updated_at,
-
+  images: @product.images,
 }

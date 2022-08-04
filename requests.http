@@ -12,7 +12,6 @@ Content-Type: application/json
   "name": "Testing",
   "description": "A red fruit",
   "price": 4,
-  "image_url": "google.com",
   "supplier_id": 2
 }
 
@@ -33,9 +32,20 @@ DELETE http://localhost:3000/products/13
 
 get http://localhost:3000/suppliers
 
+#Creating new url
+
+###
+post http://localhost:3000/images
+Content-Type: application/json
+
+{
+  "url": "https://post.greatist.com/wp-content/uploads/sites/2/2021/10/GRT-bananas-spiral-circle-1200x628-facebook-1200x628.jpg",
+  "product_id": "1"
+}
 
 #decomp
-Currently image_url is 1 spaces inside Products
-  Remove images from Products
-  Create Image model (for belongs_to :Products), should have url && product_id
-  
+# Currently image_url is 1 spaces inside Products
+#   Remove images from Products
+#   Create Image model (for belongs_to :Products), should have url && product_id
+
+

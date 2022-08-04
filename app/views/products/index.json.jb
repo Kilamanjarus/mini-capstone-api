@@ -4,7 +4,6 @@
     price: product.price,
     name: product.name,
     description: product.description,
-    image_url: product.image_url,
     friendly_created_at: product.friendly_created_at,
     is_discounted: product.is_discounted?,
     tax: product.tax,
@@ -12,5 +11,6 @@
     supplier: Supplier.find_by(id: product.supplier_id),
     created_at: product.created_at,
     updated_at: product.updated_at,
+    images: product.images,
   }
 end
