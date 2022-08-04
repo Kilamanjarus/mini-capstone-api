@@ -9,10 +9,11 @@ post http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "title": "Egg",
+  "name": "Testing",
   "description": "A red fruit",
   "price": 4,
-  "image_url": "google.com"
+  "image_url": "google.com",
+  "supplier_id": 2
 }
 
 ###
@@ -20,8 +21,14 @@ patch http://localhost:3000/products/6
 Content-Type: application/json
 
 {
-  "title": "Yellow Pepper"
+  "name": "Yellow Pepper"
 }
 
 ###
 DELETE http://localhost:3000/products/13
+
+# Supplier Test Calls
+
+###
+
+get http://localhost:3000/suppliers
