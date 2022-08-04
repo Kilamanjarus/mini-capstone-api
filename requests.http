@@ -32,3 +32,10 @@ DELETE http://localhost:3000/products/13
 ###
 
 get http://localhost:3000/suppliers
+
+
+#decomp
+Currently image_url is 1 spaces inside Products
+  Remove images from Products
+  Create Image model (for belongs_to :Products), should have url && product_id
+  
