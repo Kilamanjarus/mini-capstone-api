@@ -1,10 +1,16 @@
 class ProductsController < ApplicationController
   def index
+    p "*" * 88
+    p current_user
+    p "*" * 88
     @products = Product.all
     render template: "products/index"
   end
 
   def show
+    p "*" * 88
+    p current_user
+    p "*" * 88
     @product = Product.find_by(id: params[:id])
     render template: "products/show"
   end

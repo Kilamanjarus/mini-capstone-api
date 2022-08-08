@@ -1,8 +1,10 @@
 
 get http://localhost:3000/products.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAwNjMzNzZ9.O1SztjDvv90q-DhmhAW97ckLAGFEj42hLzsGBMSKvH8
 
 ### 
 get http://localhost:3000/products/1.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAwNjMzNzZ9.O1SztjDvv90q-DhmhAW97ckLAGFEj42hLzsGBMSKvH8
 
 ###
 post http://localhost:3000/products
@@ -67,3 +69,7 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "password"
 }
+
+
+
+#"jwt": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAwNjMzNzZ9.O1SztjDvv90q-DhmhAW97ckLAGFEj42hLzsGBMSKvH8"
