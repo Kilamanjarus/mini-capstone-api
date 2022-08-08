@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "/suppliers" => "suppliers#index"
 
   post "/images" => "images#create"
+
+  post "/users" => "users#create"
 end

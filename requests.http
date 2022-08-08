@@ -48,4 +48,13 @@ Content-Type: application/json
 #   Remove images from Products
 #   Create Image model (for belongs_to :Products), should have url && product_id
 
+### User Signup (Users#Create)
+POST http://localhost:3000/users.json
+Content-Type: application/json
 
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
