@@ -70,6 +70,20 @@ Content-Type: application/json
   "password": "password"
 }
 
-
-
 #"jwt": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAwNjMzNzZ9.O1SztjDvv90q-DhmhAW97ckLAGFEj42hLzsGBMSKvH8"
+
+### Create Order
+post http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAwNjMzNzZ9.O1SztjDvv90q-DhmhAW97ckLAGFEj42hLzsGBMSKvH8
+Content-Type: application/json
+
+{
+ "product_id": 3,
+ "quantity": 3
+}
+
+### Orders Index
+get http://localhost:3000/orders
+
+### Orders Show
+get http://localhost:3000/orders/2
