@@ -83,7 +83,8 @@ Content-Type: application/json
 }
 
 ### Orders Index
-get http://localhost:3000/orders
+get http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAxNTMwOTN9.RaSdnnBqFtL569p78kOlZeTmAjvk-ACO3PwjehPMBKQ
 
 ### Orders Show
 get http://localhost:3000/orders/2

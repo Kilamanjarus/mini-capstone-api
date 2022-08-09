@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def index
-    orders = Order.all
+    p current_user
+    p "*" * 88
+    orders = current_user.orders
     render json: orders.as_json
   end
 
@@ -15,8 +17,8 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       product: Product.find_by(id: params[:product_id]).name,
       quantity: params[:quantity],
-      subtotal: Product.find_by(id: params[:product_id]).price,
-      tax: Product.find_by(id: params[:product_id]).tax,
+      subtotal: Product.find_by(id: params[:product_id]).price * params[:quantity],
+      tax: Product.find_by(id: params[:product_id]).tax * params[:quantity],
       total: (Product.find_by(id: params[:product_id]).tax + Product.find_by(id: params[:product_id]).price) * params[:quantity],
     )
     order.save
