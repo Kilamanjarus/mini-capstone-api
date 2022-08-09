@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    p current_user
-    p "*" * 88
     orders = current_user.orders
     render json: orders.as_json
   end
