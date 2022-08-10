@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :authenticate_admin
+
   def create
     image = Image.new(
       url: params[:url],

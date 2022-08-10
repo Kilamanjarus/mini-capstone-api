@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
-  get "/products" => "products#index"
-  get "/products/:id" => "products#show"
-  post "/products" => "products#create"
-  patch "/products/:id" => "products#update"
-  delete "/products/:id" => "products#destroy"
+  get "/products" => "products#index" #everyone
+  get "/products/:id" => "products#show" #everyone
+  post "/products" => "products#create" #admin
+  patch "/products/:id" => "products#update" #admin
+  delete "/products/:id" => "products#destroy" #admin
 
-  get "/suppliers" => "suppliers#index"
+  get "/suppliers" => "suppliers#index" #everyone
 
-  post "/images" => "images#create"
+  post "/images" => "images#create" #admin
 
-  post "/users" => "users#create"
+  post "/users" => "users#create" #everyone
+  post "/sessions" => "sessions#create" #everyone
 
-  post "/sessions" => "sessions#create"
-
-  get "/orders" => "orders#index"
-  get "/orders/:id" => "orders#show"
-  post "/orders" => "orders#create"
+  get "/orders" => "orders#index" #user
+  get "/orders/:id" => "orders#show" #user
+  post "/orders" => "orders#create" #user
 end
