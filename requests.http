@@ -85,7 +85,7 @@ Content-Type: application/json
 }
 
 
-### Create Order (user) TESTED
+### Order Create (user) TESTED
 post http://localhost:3000/orders.json
 Authorization: Bearer {{test_jwt}}
 Content-Type: application/json
@@ -102,3 +102,26 @@ Authorization: Bearer {{test_jwt}}
 ### Orders Show (User) Tested
 get http://localhost:3000/orders/2
 Authorization: Bearer {{test_jwt}}
+
+#################################################
+#Creating new carted_products for orders
+#################################################
+
+#1 Remove quantity and product_id from Order table (1b)
+#2 create carted_products table containing: (1a)
+  #3 user_id integer
+  #4 product_id integer
+  #5 quantity integer
+  #6 order_id integer
+  #7 status string
+#8 Need to create 4 paths for carted_products (3)
+  #9 Index
+  #10 Create
+  #10 Update (Don't worry about it for demo)
+  #11 Destroy (check status for 'removed')
+#12 refer tables with has_many and belongs_to (hint, if it has ID, it belongs to said ID) (hint_2: belongs_to :order, optional: true)  (2) 
+#13
+  #Update Order routes to use the Carted_Products table
+    #Def find all carted products
+    #calculate math stuff
+    #modify carted to purchased 
