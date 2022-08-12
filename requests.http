@@ -1,5 +1,7 @@
-@max_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjAxNTY4NjR9.0cdK72OX8QYHPZxNC06ZPkRysPt-3F4UyU3hfajV5D8
-@test_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjAxNTY4OTB9.q1_wjo2iyqit2GaAo5bt34I2tUI27iTf6jQWfu9voEE
+@max_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjA0MDcwMTh9.odZKUFpv_YMc34UHExlmVuEiYx90FbJkCNZ3NAfKYGQ
+@test_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA0MDY5NzR9.s-9rkb7yBjboTjTecRwboDWXIcPUPvUsn3ejtgS5xWo
+@corpse_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjA0MDczOTR9.UW0zHwhz30uumawJh4FedeGkal0z-z4nJdfwhI_iuR8
+
 
 #user.update(admin: !user.admin) | user.admin flips admin and shows status
 
@@ -16,7 +18,7 @@ Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
 {
-  "name": "Corn",
+  "name": "Corn!!",
   "description": "A yellow vegetable",
   "price": 40,
   "supplier_id": 2
@@ -28,11 +30,11 @@ Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
 {
-  "name": "Yellow Pepper"
+  "name": "Red Pepper"
 }
 
 ### Product Delete (admin) TEST TEST TEST
-DELETE http://localhost:3000/products/15
+DELETE http://localhost:3000/products/6
 Authorization: Bearer {{max_jwt}}
 
 
@@ -49,12 +51,12 @@ get http://localhost:3000/suppliers
 
 ### Images Create (Admin)
 post http://localhost:3000/images
-Authorization: Bearer {{test_jwt}}
+Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
 {
-  "url": "https://post.greatist.com/wp-content/uploads/sites/2/2021/10/GRT-bananas-spiral-circle-1200x628-facebook-1200x628.jpg",
-  "product_id": "1"
+  "url": "testing",
+  "product_id": "19"
 }
 
 #################################################
@@ -69,8 +71,8 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Test name",
-  "email": "test@test.com",
+  "name": "Jane Doe",
+  "email": "corpse@dead.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -80,14 +82,14 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "corpse@dead.com",
   "password": "password"
 }
 
 
 ### Order Create (user) TESTED
 post http://localhost:3000/orders.json
-Authorization: Bearer {{test_jwt}}
+Authorization: Bearer {{corpse_jwt}}
 Content-Type: application/json
 
 {
@@ -107,7 +109,7 @@ Authorization: Bearer {{test_jwt}}
 #Creating new carted_products for orders
 #################################################
 
-#1 Remove quantity and product_id from Order table (1b)
+#1 Remove quantity and product_id from Order table (1b) xx
 #2 create carted_products table containing: (1a)
   #3 user_id integer
   #4 product_id integer
