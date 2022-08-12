@@ -12,15 +12,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(
-      user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
-      subtotal: Product.find_by(id: params[:product_id]).price * params[:quantity],
-      tax: Product.find_by(id: params[:product_id]).tax * params[:quantity],
-      total: (Product.find_by(id: params[:product_id]).tax + Product.find_by(id: params[:product_id]).price) * params[:quantity],
-    )
-    order.save
-    render json: order.as_json
+    cart = []
+    cart << current_user.carted_products
+    p cart
+    # order = Order.new(
+    #   user_id: current_user.id,
+    #   subtotal: Product.find_by(id: params[:product_id]).price * params[:quantity],
+    #   tax: Product.find_by(id: params[:product_id]).tax * params[:quantity],
+    #   total: (Product.find_by(id: params[:product_id]).tax + Product.find_by(id: params[:product_id]).price) * params[:quantity],
+    # )
+    # order.save
+
+    render json: cart.as_json
   end
 end

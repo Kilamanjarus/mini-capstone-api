@@ -93,8 +93,7 @@ Authorization: Bearer {{corpse_jwt}}
 Content-Type: application/json
 
 {
- "product_id": 3,
- "quantity": 3
+
 }
 
 ### Orders Index (User) Tested
@@ -110,20 +109,40 @@ Authorization: Bearer {{test_jwt}}
 #################################################
 
 #1 Remove quantity and product_id from Order table (1b) xx
-#2 create carted_products table containing: (1a)
+#2 create carted_products table containing: (1a) xx
   #3 user_id integer
   #4 product_id integer
   #5 quantity integer
   #6 order_id integer
   #7 status string
-#8 Need to create 4 paths for carted_products (3)
+#8 Need to create 4 paths for carted_products (3) xx
   #9 Index
   #10 Create
   #10 Update (Don't worry about it for demo)
   #11 Destroy (check status for 'removed')
-#12 refer tables with has_many and belongs_to (hint, if it has ID, it belongs to said ID) (hint_2: belongs_to :order, optional: true)  (2) 
+#12 refer tables with has_many and belongs_to (hint, if it has ID, it belongs to said ID) (hint_2: belongs_to :order, optional: true)  (2)  xx
 #13
   #Update Order routes to use the Carted_Products table
+    #loop through carted_products table finding all matching user_id + status == carted ! removed/purchased
     #Def find all carted products
     #calculate math stuff
     #modify carted to purchased 
+
+### Carted_Product Index (Eventualy tie to user only)
+get http://localhost:3000/cart 
+Authorization: Bearer {{corpse_jwt}}
+
+### Carted_Product Create 
+post http://localhost:3000/cart.json
+Authorization: Bearer {{corpse_jwt}}
+Content-Type: application/json
+
+{
+"user_id": 3,
+"product_id": 1,
+"quantity": 2
+}
+
+### Carted_Product Destroy (Status to removed)
+DELETE http://localhost:3000/cart/1.json
+Authorization: Bearer {{corpse_jwt}}
