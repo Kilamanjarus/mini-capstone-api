@@ -14,30 +14,32 @@ class OrdersController < ApplicationController
   def create
     #determine subtotal
     subtotal = 0
-    current_user.carted_products.each do |cart_product|
-      if cart_product.status == "carted"
-        subtotal = subtotal + (cart_product.quantity * Product.find_by(id: cart_product.product_id).price)
+    current_user.carted_products.each do |carted_product|
+      if carted_product.status == "carted"
+        subtotal = subtotal + (carted_product.quantity * Product.find_by(id: carted_product.product_id).price)
       end
     end
-
+    p subtotal
+    #set created_order subtotal, tax, and total
     #create new order
-    p cartorder = Order.new(
+    cartorder = Order.new(
       user_id: current_user.id,
       subtotal: subtotal,
       tax: subtotal * 0.05,
       total: subtotal + subtotal * 0.05,
     )
-    cartorder.save
-
+    cartorder.save!
+    p cartorder
+    p "#################################"
     #use new order_id to set
-    current_user.carted_products.each do |cart_product|
-      if cart_product.status == "carted"
-        cart_product.status = "purchased"
-        cart_product.order_id = Order.last.id
-        cart_product.save
+    current_user.carted_products.each do |carted_product|
+      if carted_product.status == "carted"
+        carted_product.status = "purchased"
+        carted_product.order_id = cartorder.id
+        carted_product.save
       end
     end
 
-    render json: current_user.carted_products.as_json
+    render json: cartorder.as_json
   end
 end

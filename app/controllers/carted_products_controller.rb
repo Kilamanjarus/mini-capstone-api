@@ -1,15 +1,15 @@
 class CartedProductsController < ApplicationController
   def index
-    cart_products = CartedProduct.all
-    render json: cart_products.as_json
+    cart_products = CartedProduct.where(status: "carted", user_id: current_user)
+    #carted_products = current_user.carted_products.where(status: "carted") also works, bit more common syntax
+    render json: "carted_products/index"
   end
 
   def create
     carted_product = CartedProduct.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       product_id: params[:product_id],
       quantity: params[:quantity],
-      order_id: nil,
       status: "carted",
     )
     carted_product.save
@@ -20,6 +20,6 @@ class CartedProductsController < ApplicationController
     cart_product = CartedProduct.find_by(id: params[:id])
     cart_product.status = "removed"
     cart_product.save
-    render json: cart_product.as_json
+    render json: { message: "Product removed from cart." }
   end
 end

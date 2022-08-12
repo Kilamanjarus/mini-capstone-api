@@ -129,20 +129,19 @@ Authorization: Bearer {{test_jwt}}
     #modify carted to purchased 
 
 ### Carted_Product Index (Eventualy tie to user only)
-get http://localhost:3000/cart 
+get http://localhost:3000/carted_products 
 Authorization: Bearer {{corpse_jwt}}
 
 ### Carted_Product Create 
-post http://localhost:3000/cart.json
+post http://localhost:3000/carted_products.json
 Authorization: Bearer {{corpse_jwt}}
 Content-Type: application/json
 
 {
-"user_id": 3,
 "product_id": 1,
 "quantity": 2
 }
 
 ### Carted_Product Destroy (Status to removed)
-DELETE http://localhost:3000/cart/1.json
+DELETE http://localhost:3000/carted_products/1.json
 Authorization: Bearer {{corpse_jwt}}
