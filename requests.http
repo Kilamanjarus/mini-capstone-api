@@ -1,6 +1,6 @@
-@max_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjA0MDcwMTh9.odZKUFpv_YMc34UHExlmVuEiYx90FbJkCNZ3NAfKYGQ
-@test_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA0MDY5NzR9.s-9rkb7yBjboTjTecRwboDWXIcPUPvUsn3ejtgS5xWo
-@corpse_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjA0MDczOTR9.UW0zHwhz30uumawJh4FedeGkal0z-z4nJdfwhI_iuR8
+@max_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjE5NjY5Njl9.Gj7dNhnCBKMfqWQ4cHJMpHp5DM5__rwSQYXo2mRzlR8
+@test_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjE5NjY5MTF9.JRmbWHFzpsAkMP_vkgybh7gIuw2hVS5pqqWxdeIlsd0
+@corpse_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjE5NjY4NDJ9.W7jeBo3-7XWqQb6pS25Bf5BZuAALTJK3hK2R0o-tWfs
 
 
 #user.update(admin: !user.admin) | user.admin flips admin and shows status
@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ### Product Update (admin) Tested
-patch http://localhost:3000/products/6
+patch http://localhost:3000/products/8
 Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ### Product Delete (admin) TEST TEST TEST
-DELETE http://localhost:3000/products/6
+DELETE http://localhost:3000/products/
 Authorization: Bearer {{max_jwt}}
 
 
@@ -82,14 +82,14 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "corpse@dead.com",
+  "email": "max@email.com",
   "password": "password"
 }
 
 
 ### Order Create (user) TESTED
 post http://localhost:3000/orders.json
-Authorization: Bearer {{corpse_jwt}}
+Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
 {
@@ -98,11 +98,11 @@ Content-Type: application/json
 
 ### Orders Index (User) Tested
 get http://localhost:3000/orders.json
-Authorization: Bearer {{test_jwt}}
+Authorization: Bearer {{max_jwt}}
 
 ### Orders Show (User) Tested
 get http://localhost:3000/orders/2
-Authorization: Bearer {{test_jwt}}
+Authorization: Bearer {{max_jwt}}
 
 #################################################
 #Creating new carted_products for orders
@@ -130,11 +130,11 @@ Authorization: Bearer {{test_jwt}}
 
 ### Carted_Product Index (Eventualy tie to user only)
 get http://localhost:3000/carted_products 
-Authorization: Bearer {{corpse_jwt}}
+Authorization: Bearer {{max_jwt}}
 
 ### Carted_Product Create 
 post http://localhost:3000/carted_products.json
-Authorization: Bearer {{corpse_jwt}}
+Authorization: Bearer {{max_jwt}}
 Content-Type: application/json
 
 {
@@ -144,4 +144,4 @@ Content-Type: application/json
 
 ### Carted_Product Destroy (Status to removed)
 DELETE http://localhost:3000/carted_products/1.json
-Authorization: Bearer {{corpse_jwt}}
+Authorization: Bearer {{max_jwt}}
